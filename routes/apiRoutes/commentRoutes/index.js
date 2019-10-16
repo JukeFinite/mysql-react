@@ -1,9 +1,8 @@
 const router = require('express').Router();
 
-// /api/blog
-
 router.get('/', (req, res) => {
-    console.log(`I'm hit!`);
-});
+    console.log('Comments are hit');
+})
 
+// /api
 module.exports = router;
