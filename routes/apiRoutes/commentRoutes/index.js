@@ -1,8 +1,8 @@
 const router = require('express').Router();
+const commentsController = require('./../../../controllers/commentsController');
 
-router.get('/', (req, res) => {
-    console.log('Comments are hit');
-})
+router.route('/')
+    .get(commentsController.getComments)
 
 // /api
 module.exports = router;

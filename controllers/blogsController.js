@@ -12,7 +12,7 @@ module.exports = {
     },
     createBlog: (req, res) => {
         const { blog } = req.body;
-        const query = `INSERT INTO blogs (blog) VALUES(?)`;
+        const query = `INSERT INTO blogs (blog) VALUES(?)`;            
         connection.query(query, blog, (err, response) => {
             if(err) {
                 return res.status(403).send(err);
