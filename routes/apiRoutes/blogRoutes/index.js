@@ -8,7 +8,8 @@ router.route('/')
     .get(blogController.getBlogs)
     .post(blogController.createBlog)
 
-
-
+// /api/blogs
+router.route('/:blogId')
+    .get(blogController.getBlog)
 
 module.exports = router;

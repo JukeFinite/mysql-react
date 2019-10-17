@@ -6,3 +6,10 @@ router.route('/')
 
 // /api
 module.exports = router;
+
+
+
+
+// /api/blogs/:blogId/
+
+
