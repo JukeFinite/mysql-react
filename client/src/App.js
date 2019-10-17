@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import Header from './components/Header';
+import Nav from './components/Nav';
+import Blog from './components/Blogs'
 
 import axios from 'axios';
 
@@ -17,19 +22,15 @@ class App extends Component {
       });
   }
 
-  renderBlogs = () => {
-    return this.state.blogs.map(blog => {
-      return <h1 key={blog.id}>{blog.blog}</h1>
-    });
-  }
-
-  render(){
-    console.log(this.state.blogs);
+  render(){  
     return (
-      <div>
-        <h1>Hello World</h1>
-        { this.renderBlogs() } 
-      </div>
+      <Router>
+        <Nav/>
+        <Switch>
+          <Route exact path='/' component={Header}/>
+          <Route exact path='/blogs' render={() => <Blog blogs={this.state.blogs}/> }/>
+        </Switch>
+      </Router>
     );
   }
 }
