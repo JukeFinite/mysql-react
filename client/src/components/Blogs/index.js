@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default (props) => {
     return props.blogs.map(blog => {
-        return <h1 key={blog.id}>{blog.blog}</h1>
+        return <p  key={blog.id}><Link to={`/blogs/${blog.id}`}>{blog.blog}</Link></p>
     });
 }

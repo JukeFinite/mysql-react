@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+// Import containers
+import BlogDetail from './containers/BlogDetail';
+
+// Import Components
 import Header from './components/Header';
 import Nav from './components/Nav';
 import Blog from './components/Blogs'
@@ -29,6 +33,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={Header}/>
           <Route exact path='/blogs' render={() => <Blog blogs={this.state.blogs}/> }/>
+          <Route exact path='/blogs/:id' component={BlogDetail}/>
         </Switch>
       </Router>
     );

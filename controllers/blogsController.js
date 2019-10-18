@@ -54,7 +54,7 @@ module.exports = {
     },
     getBlogsComments: (req, res) => {
         const { blogId } = req.params;
-        let query = `SELECT comment FROM comments `;
+        let query = `SELECT comments.id, comment FROM comments `;
         query += `INNER JOIN blogs `;
         query += `ON comments.blog_id = blogs.id `;
         query += `WHERE blog_id = ?`;
