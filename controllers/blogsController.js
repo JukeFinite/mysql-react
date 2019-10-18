@@ -47,14 +47,15 @@ module.exports = {
         const query = `INSERT INTO comments(comment, blog_id) VALUES(?,?);`
         connection.query(query, [comment, blogId], (err, comments) => {
             if(err){
+                console.log(err);
                 return res.status(403).send(err);
-            }
+            }            
             res.json(comments);
         });
     },
     getBlogsComments: (req, res) => {
         const { blogId } = req.params;
-        let query = `SELECT comments.id, comment FROM comments `;
+        let query = `SELECT blogs.id as blogId, blogs.blog, comments.id, comment FROM comments `;
         query += `INNER JOIN blogs `;
         query += `ON comments.blog_id = blogs.id `;
         query += `WHERE blog_id = ?`;
